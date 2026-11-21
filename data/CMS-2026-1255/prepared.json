@@ -1,8 +1,8 @@
 {
  "docket": "CMS-2026-1255",
  "totals": {
-  "comments": 722,
-  "unique": 468,
+  "comments": 721,
+  "unique": 467,
   "in_campaigns": 257,
   "organizations": 352,
   "with_attachments": 377,
@@ -27,7 +27,7 @@
   },
   "stance_unique": {
    "support": 291,
-   "unclear": 128,
+   "unclear": 127,
    "mixed": 34,
    "objects": 15
   }

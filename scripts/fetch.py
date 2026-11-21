@@ -69,10 +69,13 @@ def main(docket):
     with ThreadPoolExecutor(16) as pool:
         raw = list(pool.map(lambda k: json.loads(get(f"{BUCKET}/{k}")), ckeys))
 
-    comments = []
+    comments, seen = [], set()
     for d in raw:
         a = d["data"]["attributes"]
         cid = d["data"]["id"]
+        if cid in seen:  # the archive sometimes stores a comment twice (e.g. "-0077(1).json")
+            continue
+        seen.add(cid)
         atts = [clean(t) for (c, n), t in sorted(attach.items()) if c == cid]
         comments.append({
             "id": cid,

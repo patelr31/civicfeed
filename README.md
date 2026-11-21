@@ -4,7 +4,7 @@
 
 ![CivicFeed](docs/screenshot.png)
 
-**What did 722 public comments actually say about CMS's prior authorization rule?**
+**What did 721 public comments actually say about CMS's prior authorization rule?**
 
 CivicFeed turns a federal rulemaking docket into a readable briefing:
 - the coordinated campaigns;
@@ -26,7 +26,7 @@ and agencies that can't afford $100K+ tools.
 
 | | |
 |---|---|
-| Comments | 722 (468 distinct once campaigns are collapsed) |
+| Comments | 721 (467 distinct once campaigns are collapsed) |
 | Coordinated campaigns | 36% of all comments: mainly one form letter sent 236 times and a shared template filed by 16 community health centers and their associations (each with its own name swapped in), plus a smaller form letter sent 5 times |
 | Opposition | Almost none to the rule itself. The clearest "withdraw the proposal" comment is about Open Payments audits, a different rule, so it was probably misfiled. |
 | Deadline debate | About 10 times more comments ask to delay or phase in the October 1, 2027 compliance date than to hold it. The requests for more time come mostly from health IT companies, hospitals, standards bodies and plans. |
@@ -41,7 +41,7 @@ fetch.py  →  prep.py (rules)  →  ANALYZE.md (AI)  →  build.py (checks + co
 1. **`scripts/fetch.py`** downloads every comment from
    [Mirrulations](https://registry.opendata.aws/mirrulations/), a public AWS archive of
    regulations.gov that needs no API key. It includes text already extracted from PDF
-   attachments, which matters: 377 of the 722 comments put their substance in an
+   attachments, which matters: 377 of the 721 comments put their substance in an
    attachment.
 2. **`scripts/prep.py`** (no AI):
    - **Form-letter campaigns:** 5-word shingles, 50% Jaccard, union-find.
