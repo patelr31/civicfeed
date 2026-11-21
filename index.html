@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CivicFeed</title>
+<meta name="description" content="What 722 public comments said about CMS's interoperability and prior authorization for drugs rule: campaigns, stakeholders, themes and debates, with every quote verified.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#">CivicFeed</a>
+    <div id="auth" class="auth"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">Public comment intelligence · <a id="docket-link" href="#" target="_blank" rel="noopener"></a></p>
+    <h1 id="rule"></h1>
+    <p id="headline" class="lede"></p>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="grid2">
+    <div class="card"><h2>What CMS proposed</h2><ul id="proposed" class="tight"></ul></div>
+    <div class="card"><h2>Summary</h2><div id="summary"></div></div>
+  </section>
+
+  <section class="grid2">
+    <div class="card"><h2>Who commented</h2><div id="types" class="bars"></div>
+      <p class="hint">Estimated from each submitter's category and organization name.</p></div>
+    <div class="card"><h2>Coordinated campaigns</h2><div id="campaigns"></div></div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Themes</h2><span class="hint">Counts are distinct comments (each campaign counted once). <span id="mine-toggle"></span></span></div>
+    <div id="themes" class="themes"></div>
+  </section>
+
+  <section class="card" id="browse">
+    <div class="section-head"><h2>Browse comments</h2><span id="b-count" class="hint"></span></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search organization or text…" aria-label="Search comments">
+      <select id="f-type" aria-label="Commenter type"><option value="">All commenters</option></select>
+      <select id="f-theme" aria-label="Theme"><option value="">All themes</option></select>
+      <select id="f-stance" aria-label="Stance"><option value="">Any stance</option><option value="support">Supports</option><option value="mixed">Mixed</option><option value="objects">Objection language</option><option value="unclear">No clear stance</option></select>
+      <label class="chk"><input id="f-copies" type="checkbox" checked> Hide campaign copies</label>
+    </div>
+    <ul id="list" class="list"></ul>
+    <div class="pager"><button id="more" class="ghost">Show more</button></div>
+  </section>
+
+  <section class="card method">
+    <h2>How this was made</h2>
+    <ol>
+      <li><b>Data:</b> all comments on the docket, from the public <a href="https://registry.opendata.aws/mirrulations/">Mirrulations</a> archive of regulations.gov, including text extracted from PDF attachments.</li>
+      <li><b>Rules, in code:</b> form-letter and template campaigns (shared wording), commenter type, stance from explicit wording, key recommendation sentences, and TF-IDF clustering of those sentences into candidate themes.</li>
+      <li><b>AI step:</b> Claude labelled and merged the clusters, wrote neutral summaries and picked quotes, following <a href="https://github.com/patelr31/civicfeed/blob/main/ANALYZE.md">ANALYZE.md</a>. It wrote no numbers.</li>
+      <li><b>Checks, in code:</b> every quote must appear word for word in the cited comment, or the build fails. Every count and debate split is a pattern match over distinct comments.</li>
+    </ol>
+    <ul id="notes" class="tight hint"></ul>
+  </section>
+</main>
+
+<dialog id="auth-dialog">
+  <form method="dialog" id="auth-form">
+    <h2 id="auth-title">Sign in to save notes</h2>
+    <p class="hint">Star themes and comments and keep private notes. Only you can see them.</p>
+    <label>Email<input type="email" id="a-email" required autocomplete="email"></label>
+    <label>Password<input type="password" id="a-pass" required minlength="8" autocomplete="current-password"></label>
+    <p id="a-msg" class="hint" aria-live="polite"></p>
+    <div class="row"><button id="a-signin" value="signin">Sign in</button><button id="a-signup" value="signup" class="ghost">Create account</button><button value="cancel" class="ghost" formnovalidate>Close</button></div>
+  </form>
+</dialog>
+
+<footer class="wrap">Built on public data. Not affiliated with CMS. Stance and commenter types are estimates; read the original comment before relying on any one item.</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

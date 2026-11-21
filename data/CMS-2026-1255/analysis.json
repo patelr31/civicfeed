@@ -1,0 +1,312 @@
+{
+  "rule": "Interoperability Standards and Prior Authorization for Drugs (CMS-0062-P)",
+  "what_cms_proposed": [
+    "Require Medicare Advantage plans, Medicaid and CHIP programs and ACA marketplace plans to support electronic prior authorization for drugs, not only for medical services.",
+    "Drugs covered under the medical benefit would go through the FHIR-based Prior Authorization API; drugs under the pharmacy benefit would use NCPDP standards (SCRIPT, Formulary and Benefit, Real-Time Prescription Benefit).",
+    "Make the HL7 Da Vinci implementation guides (CRD, DTR, PAS) mandatory rather than recommended.",
+    "Require a specific reason for every drug prior authorization denial, and decisions within 72 hours (standard) or 24 hours (expedited).",
+    "Compliance from October 1, 2027, plus requests for information on step therapy, laboratory tests and DMEPOS, and health care resiliency."
+  ],
+  "headline": "Almost nobody opposed the rule; the arguments are about how fast, how far, and who carries the cost.",
+  "summary": [
+    "The docket received {comments} comments. {campaign_comments} of them ({campaign_share}%) came from coordinated campaigns: a form letter in support of prior authorization reform sent {form_letter_size} times, and a template filed by {template_size} community health centers with their own names swapped in. Once campaign copies are collapsed, {unique} distinct comments remain.",
+    "Support is broad. Patient groups, physician societies, health IT companies and many health plans back extending electronic prior authorization to drugs and making the Da Vinci FHIR guides mandatory. Only {objects} comments contain explicit objection language, and the clearest call to withdraw a proposal is about a different rule (Open Payments audits), which suggests it was filed in the wrong docket.",
+    "The real disagreements are about timing and scope. Far more comments ask CMS to delay or phase in the October 2027 deadline than to hold it; the requests for more time come mostly from health IT companies, hospitals, standards groups and health plans, while a few drug makers ask CMS to keep the date. On decision speed, physician and patient groups push for shorter limits than 72 hours, and many want a request to count as approved if the payer misses the deadline. Laboratories and cancer groups use the request for information to describe prior authorization rules that don't fit how specimens are collected.",
+    "Implementation burden runs through the comments: community health centers and small practices warn that the rule only works if EHR vendors are ready and safety-net providers get support."
+  ],
+  "themes": [
+    {
+      "id": "epa-drugs",
+      "title": "Electronic prior authorization for drugs",
+      "clusters": [
+        7,
+        4
+      ],
+      "summary": "The core proposal draws wide support: commenters want every drug that needs prior authorization to have an electronic route, ending fax and phone requests. Many ask CMS to finalize it as proposed.",
+      "debate": null,
+      "measure": {
+        "label": "comments discussing electronic prior authorization for drugs",
+        "regex": "electronic prior authori[sz]ation for (all )?drugs|\\bepa\\b for (all )?drugs|prior authori[sz]ation api"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0035",
+          "text": "Electronic Prior Authorization for Drugs NICA supports CMS’ proposal to require impacted payers to incorporate coverage and documentation requirements into the Prior Authorization API to support electronic prior authorization for drugs covered under a medical benefit beginning October 1, 2027."
+        },
+        {
+          "id": "CMS-2026-1255-0390",
+          "text": "The AAMC applauds CMS for its efforts to advance interoperability and standardize the prior authorization process to support access, improve patient care, and reduce administrative burden."
+        }
+      ]
+    },
+    {
+      "id": "two-tracks",
+      "title": "Pharmacy benefit vs medical benefit tracks",
+      "clusters": [
+        6
+      ],
+      "summary": "CMS would use NCPDP standards for pharmacy-benefit drugs and the FHIR API for medical-benefit drugs. Commenters broadly accept the split but warn that providers often can't tell which benefit a drug falls under, and ask payers to expose that classification up front.",
+      "debate": "Some want one coherent experience across both tracks; others accept two standards as long as payers say which applies.",
+      "measure": {
+        "label": "comments discussing the pharmacy-benefit or NCPDP track",
+        "regex": "ncpdp|pharmacy benefit|benefit classification"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0618",
+          "text": "CMS proposes to require the use of distinct standards for drugs covered under the pharmacy benefit and for drugs covered under the medical benefit."
+        },
+        {
+          "id": "CMS-2026-1255-0661",
+          "text": "Westside Family Healthcare recommends that CMS require payers to expose benefit classification information through the Provider Access APIs (via the CRD Coverage Information extension) so providers can determine in real time whether a drug falls under the medical benefit or pharmacy benefit pathway."
+        }
+      ]
+    },
+    {
+      "id": "fhir-guides",
+      "title": "Mandatory Da Vinci FHIR guides",
+      "clusters": [
+        12
+      ],
+      "summary": "Health IT companies, the AMA and standards groups welcome moving the CRD, DTR and PAS implementation guides from recommended to required, saying it gives vendors one target. Several add requests, such as clinical criteria in FHIR-native form or metadata about AI use.",
+      "debate": null,
+      "measure": {
+        "label": "comments naming the Da Vinci guides (CRD, DTR, PAS)",
+        "regex": "da vinci|\\bcrd\\b|\\bdtr\\b|\\bpas\\b"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0465",
+          "text": "The AMA appreciates CMS’ continued investment in the FHIR-based payer APIs and commends the proposed elevation of the Da Vinci Coverage Requirements Discovery (CRD), Documentation Templates and Rules (DTR), and Prior Authorization Support (PAS) implementation guides from recommended to required."
+        },
+        {
+          "id": "CMS-2026-1255-0606",
+          "text": "Extending the FHIR-based Prior Authorization API to these drugs, using the Da Vinci Coverage Requirements Discovery (CRD), Documentation Templates and Rules (DTR), and Prior Authorization Support (PAS) implementation guides (IGs), is the right policy direction and consistent with the broader interoperability framework established"
+        }
+      ]
+    },
+    {
+      "id": "compliance-date",
+      "title": "The October 1, 2027 deadline",
+      "clusters": [
+        0
+      ],
+      "summary": "The clearest split in the docket, and a lopsided one. Health IT companies, hospitals, standards bodies and health plans ask for more time or a phased rollout, often citing the NCPDP SCRIPT version transition and vendor readiness. A small number of commenters, mostly drug makers, ask CMS to hold October 1, 2027 so that relief for patients isn't delayed.",
+      "debate": "Hold October 1, 2027, or move to a later date or a phased glidepath.",
+      "measure": {
+        "label": "comments discussing the compliance date",
+        "regex": "october 1, 2027|compliance date|glidepath|glide path"
+      },
+      "sides": [
+        {
+          "label": "Hold the date",
+          "regex": "(maintain|hold|keep|finali[sz]e) the (proposed )?october 1, 2027|proposed compliance date is appropriate"
+        },
+        {
+          "label": "Delay or phase it",
+          "regex": "(extend|delay|push back|postpone) the (proposed )?(october 1, 2027 )?(compliance|implementation) (date|deadline)|no earlier than \\d+ months|glide ?path|phased (implementation|approach|compliance)|compliance date (until|to) (at least )?(october 1, 2028|2028|2029)"
+        }
+      ],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0468",
+          "text": "We continue to encourage CMS to hold the October 1, 2027 compliance date for the substantive provisions of the rule."
+        },
+        {
+          "id": "CMS-2026-1255-0606",
+          "text": "Compliance Timeline Although we are supportive of the adoption of the proposed NCPDP standards, we urge CMS to extend the proposed October 1, 2027 compliance date for the pharmacy benefit prior authorization requirements to no earlier than 24 months from the effective date of the final rule."
+        }
+      ]
+    },
+    {
+      "id": "timeframes",
+      "title": "How fast payers must decide",
+      "clusters": [
+        1
+      ],
+      "summary": "CMS proposed decisions within 72 hours for standard and 24 hours for expedited drug requests. Physician and patient groups more often ask for shorter limits than ask CMS to keep the proposed ones, and many want a request treated as approved when the payer misses the deadline.",
+      "debate": "Finalize 72 and 24 hours, make them shorter, and whether a missed deadline should count as an approval.",
+      "measure": {
+        "label": "comments discussing decision timeframes",
+        "regex": "72 hours|24 hours|48 hours|decision time ?frames?"
+      },
+      "sides": [
+        {
+          "label": "Finalize 72 / 24 hours",
+          "regex": "(support|finali[sz]e) (cms.s )?(the )?proposed (time ?lines|time ?frames)|support the proposed timeframes"
+        },
+        {
+          "label": "Make them shorter",
+          "regex": "24 hours in all cases|should be shortened|shorten(ed)? (the )?(time ?frames?|timelines?)|48 hours for standard|shorter time ?frames"
+        },
+        {
+          "label": "Auto-approve if the payer is late",
+          "regex": "automatic(ally)? (be )?approv|deemed (automatically )?approved|auto-approv"
+        }
+      ],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0686",
+          "text": "Regarding timeframes for QHP issuers to respond to prior authorization requests for prescription drugs, we urge CMS to require insurers to respond within 24 hours in all cases, rather than the proposed timeframes of no later than 72 hours for standard requests and 24 hours for expedited requests."
+        },
+        {
+          "id": "CMS-2026-1255-0558",
+          "text": "CMS should finalize prior authorization decision timeframes of 48 hours for standard non-drug requests and 24 hours for expedited requests for all impacted payers."
+        }
+      ]
+    },
+    {
+      "id": "denial-reasons",
+      "title": "Specific reasons for denials",
+      "clusters": [
+        8
+      ],
+      "summary": "Requiring a specific reason for every drug denial is one of the most uniformly supported proposals, from patient groups, physicians and vendors alike. Some ask CMS to define how specific the reason must be and to pair it with public reporting metrics.",
+      "debate": null,
+      "measure": {
+        "label": "comments discussing denial reasons",
+        "regex": "specific reason|reason for (the )?denial|denial reason"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0593",
+          "text": "REQUIREMENT TO INCLUDE SPECIFIC DENIAL REASON NHHA strongly supports CMS’ proposal to require payors to provide a specific reason for denial when a prior authorization request for a drug is not approved."
+        },
+        {
+          "id": "CMS-2026-1255-0529",
+          "text": "Specific Reasons for Denials: Improving Transparency athenahealth supports CMS’s proposal that impacted payers provide a specific reason when denying a prior authorization request for a drug."
+        }
+      ]
+    },
+    {
+      "id": "lab-tests",
+      "title": "Prior authorization for laboratory tests",
+      "clusters": [
+        2,
+        10
+      ],
+      "summary": "Responding to CMS's request for information, laboratories and cancer groups describe a mismatch: payers often require the ordering clinician to obtain authorization before the specimen is collected, and some specimens can't be collected again if authorization is late.",
+      "debate": null,
+      "measure": {
+        "label": "comments discussing laboratory tests or specimens",
+        "regex": "laborator|specimen|biomarker"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0037",
+          "text": "However, many payors will not allow the laboratory to initiate the prior authorization and/or require that the prior authorization be initiated prior to the date of service, which they define as the day that the sample was collected."
+        },
+        {
+          "id": "CMS-2026-1255-0550",
+          "text": "For example, MA organizations commonly require prior authorization requests for Myriad’s laboratory tests to come from the ordering provider before the specimen is collected, prohibiting Myriad from obtaining the prior authorization on our own."
+        }
+      ]
+    },
+    {
+      "id": "step-therapy",
+      "title": "Step therapy",
+      "clusters": [
+        5
+      ],
+      "summary": "Patient groups and drug makers use the step therapy request for information to ask that a patient's step therapy history follow them between plans, and that payers publish their protocols and allow clinical exceptions.",
+      "debate": null,
+      "measure": {
+        "label": "comments discussing step therapy",
+        "regex": "step therapy"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0032",
+          "text": "We are particularly pleased to see that CMS has issued a Request for Information on how to streamline step therapy protocols and use technology to swiftly access patient history of therapy so as not to be duplicative in step therapy requirements."
+        },
+        {
+          "id": "CMS-2026-1255-0456",
+          "text": "Finally, PhRMA urges CMS to require payers to make utilization management policies publicly available, including prior authorization criteria and step therapy protocols."
+        }
+      ]
+    },
+    {
+      "id": "patient-delays",
+      "title": "Delays in care and clinician time",
+      "clusters": [
+        13
+      ],
+      "summary": "The emotional core of the docket, and the subject of the large form-letter campaign: patients and clinicians describe treatment delayed or denied while waiting on authorization, and staff hours spent on paperwork.",
+      "debate": null,
+      "measure": {
+        "label": "comments describing delays to medically necessary care",
+        "regex": "medically necessary|delay(s|ed)? (in )?(care|treatment|access|diagnos)"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0558",
+          "text": "A single prior authorization request can take an hour or more of physician or clinical staff time to process, diverting attention and resources away from patient care."
+        },
+        {
+          "id": "CMS-2026-1255-0718",
+          "text": "Administrative complexity should not stand between patients and medically necessary care."
+        }
+      ]
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation burden and vendor readiness",
+      "clusters": [
+        0
+      ],
+      "summary": "Community health centers (through a shared template), small practices and some individuals support the goals but warn that the rule depends on EHR vendors being ready, and ask for technical assistance, funding clarity and realistic testing.",
+      "debate": null,
+      "measure": {
+        "label": "comments raising implementation burden or readiness",
+        "regex": "vendor readiness|implementation (burden|support|challenges)|technical assistance|readiness|funding"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0661",
+          "text": "Concurrently, Westside Family Healthcare urges CMS to recognize that the success of these proposals will depend heavily on vendor readiness, operational consistency, and meaningful implementation support for safety-net providers."
+        },
+        {
+          "id": "CMS-2026-1255-0506",
+          "text": "We firmly believe now is the time for HHS to invest in successful implementation of standards, including the existing payer API mandates, with a focus on real-world testing involving medical groups to ensure readiness so that these policies work as intended in practice to improve patient care and operational efficiency."
+        }
+      ]
+    },
+    {
+      "id": "data-exchange",
+      "title": "Wider data exchange: TEFCA, HIEs, cybersecurity",
+      "clusters": [
+        3,
+        9
+      ],
+      "summary": "Health information exchanges and technology groups use the rule to ask for more: TEFCA as a route for prior authorization data, recognition of HIEs, structured clinical data to enable automatic approvals, and help with cybersecurity resilience.",
+      "debate": null,
+      "measure": {
+        "label": "comments on TEFCA, HIEs, event notifications or cybersecurity",
+        "regex": "tefca|\\bhies?\\b|health information exchange|event notification|cyber|ransomware"
+      },
+      "sides": [],
+      "quotes": [
+        {
+          "id": "CMS-2026-1255-0694",
+          "text": "As standards-based data exchange becomes more widely implemented, CMS should encourage payers to leverage structured clinical data to support automated approvals when established coverage criteria are met."
+        },
+        {
+          "id": "CMS-2026-1255-0717",
+          "text": "RFI on Increasing Health Care Resiliency CHI shares CMS’ concern about the escalating threat that hacking, ransomware, and other cyberattacks pose to the health care system and to electronic protected health information."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "CMS-2026-1255-0411 asks CMS to withdraw a proposal on Open Payments audits, which belongs to a different rule; it appears to have been filed in this docket by mistake.",
+    "Stance and stakeholder type are rule-based estimates. 'Objects' means the comment uses objection language somewhere; many such comments object to prior authorization practices, not to this rule."
+  ]
+}
