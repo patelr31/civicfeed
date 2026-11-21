@@ -1,5 +1,9 @@
 # CivicFeed
 
+**Live: https://civicfeed-six.vercel.app**
+
+![CivicFeed](docs/screenshot.png)
+
 **What did 722 public comments actually say about CMS's prior authorization rule?**
 
 CivicFeed turns a federal rulemaking docket into a readable briefing:
