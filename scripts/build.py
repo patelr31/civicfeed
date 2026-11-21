@@ -79,6 +79,7 @@ def main(docket):
         "template_size": max((g["size"] for g in tmpl), default=0),
         "objects": sum(1 for c in distinct if who[c["id"]]["stance"] == "objects"),
     }
+    numbers["other_campaign_comments"] = numbers["campaign_comments"] - numbers["form_letter_size"] - numbers["template_size"]
     summary = [p.format(**numbers) for p in ai["summary"]]
 
     index = []

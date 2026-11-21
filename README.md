@@ -27,7 +27,7 @@ and agencies that can't afford $100K+ tools.
 | | |
 |---|---|
 | Comments | 722 (468 distinct once campaigns are collapsed) |
-| Coordinated campaigns | 36% of all comments: one form letter sent 236 times, and a shared template filed by 16 community health centers (each with its own name swapped in) |
+| Coordinated campaigns | 36% of all comments: mainly one form letter sent 236 times and a shared template filed by 16 community health centers and their associations (each with its own name swapped in), plus a smaller form letter sent 5 times |
 | Opposition | Almost none to the rule itself. The clearest "withdraw the proposal" comment is about Open Payments audits, a different rule, so it was probably misfiled. |
 | Deadline debate | About 10 times more comments ask to delay or phase in the October 1, 2027 compliance date than to hold it. The requests for more time come mostly from health IT companies, hospitals, standards bodies and plans. |
 | Decision speed | More comments ask for shorter limits than ask CMS to keep 72 hours / 24 hours, and 23 want a missed deadline to count as an approval. |
