@@ -74,9 +74,12 @@ function filtered() {
   const q = $("#q").value.trim().toLowerCase(), ty = $("#f-type").value, th = $("#f-theme").value, st = $("#f-stance").value, hide = $("#f-copies").checked;
   const seen = new Set();
   return R.comments.filter((c) => {
-    if (hide && c.campaign) { if (seen.has(c.campaign_id)) return false; seen.add(c.campaign_id); }
-    return (!ty || c.type === ty) && (!th || c.themes.includes(th)) && (!st || c.stance === st) &&
+    const ok = (!ty || c.type === ty) && (!th || c.themes.includes(th)) && (!st || c.stance === st) &&
       (!q || (c.org + " " + c.excerpt + " " + c.id).toLowerCase().includes(q));
+    if (!ok) return false;
+    // collapse campaigns to the first copy that matches the filters, not the first copy overall
+    if (hide && c.campaign) { if (seen.has(c.campaign_id)) return false; seen.add(c.campaign_id); }
+    return true;
   });
 }
 
@@ -88,7 +91,7 @@ function renderList() {
     return `<li><div class="li-head"><a href="${esc(c.url)}" target="_blank" rel="noopener"><b>${esc(c.org || "Individual commenter")}</b></a>
       <span class="pill">${esc(c.type)}</span>${c.campaign ? `<span class="pill warn">${c.campaign === "template" ? "Template" : "Form letter"}</span>` : ""}
       <span class="hint">${STANCE[c.stance]} · ${c.posted}${c.attachments ? " · attachment" : ""}</span>${starBtn(key)}</div>
-      <p>${esc(c.excerpt)}</p></li>`;
+      <p>${esc(c.excerpt)}${c.excerpt.length >= 300 ? "…" : ""}</p></li>`;
   }).join("");
   $("#more").hidden = rows.length <= shown;
 }
