@@ -4,6 +4,7 @@ text already extracted from PDF attachments, and write data/<docket>/comments.js
 
 Usage:  python3 scripts/fetch.py CMS-2026-1255
 """
+import html
 import json
 import re
 import sys
@@ -43,7 +44,7 @@ def list_keys(prefix):
 def clean(t):
     t = re.sub(r"<br\s*/?>", "\n", t or "", flags=re.I)
     t = re.sub(r"<[^>]+>", " ", t)
-    t = t.replace("&nbsp;", " ").replace("&amp;", "&").replace("&quot;", '"').replace("&#39;", "'")
+    t = html.unescape(t).replace("\xa0", " ")  # &mdash;, &rsquo;, &bull;, &nbsp; ... all decoded
     return re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n\n", t)).strip()
 
 
